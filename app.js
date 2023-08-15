@@ -68,9 +68,6 @@ app.get("/", function(req, res) {
  
 });
  
- 
- 
- 
 app.get("/:findPath",function(req,res){
  
   const userPath = req.params.findPath;
@@ -138,12 +135,8 @@ app.post("/delete", function(req,res){
   else {
     List.findOneAndUpdate({name: listName}, {$pull:{ items:{_id:checkedItemID }}}, {new: true}).then(function(foundlist){
       res.redirect("/" + listName);
-    }).catch( err => console.log(err));
-    
-}
- 
- 
-  
+    }).catch( err => console.log(err));    
+}  
 });
  
  
@@ -154,8 +147,3 @@ app.get("/about", function(req, res){
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
- 
- 
- 
- 
- 
